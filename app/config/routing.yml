@@ -1,0 +1,11 @@
+gsb_user:
+    resource: "@GSBUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gsb_report:
+    resource: "@GSBReportBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
