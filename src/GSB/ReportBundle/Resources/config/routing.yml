@@ -1,3 +1,3 @@
 gsb_report_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: GSBReportBundle:Default:index }
+    path:     /rapport
+    defaults: { _controller: GSBReportBundle:Report:index }

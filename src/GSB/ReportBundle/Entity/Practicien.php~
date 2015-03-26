@@ -1,0 +1,249 @@
+<?php
+
+namespace GSB\ReportBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="GSB\ReportBundle\Repository\PracticienRepository")
+ * @ORM\Table(name="practicien")
+ */
+class Practicien {
+    
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    protected $nomMedecin;
+    
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    protected $prenomMedecin;
+    
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $adresseMedecin;
+    
+    /**
+     * @ORM\Column(type="string", length=5)
+     */
+    protected $cpMedecin;
+    
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    protected $villeMedecin;
+    
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $coefNotoriete;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Typepracticien")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $typepracticien;
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nomMedecin
+     *
+     * @param string $nomMedecin
+     * @return Practicien
+     */
+    public function setNomMedecin($nomMedecin)
+    {
+        $this->nomMedecin = $nomMedecin;
+
+        return $this;
+    }
+
+    /**
+     * Get nomMedecin
+     *
+     * @return string 
+     */
+    public function getNomMedecin()
+    {
+        return $this->nomMedecin;
+    }
+
+    /**
+     * Set prenomMedecin
+     *
+     * @param string $prenomMedecin
+     * @return Practicien
+     */
+    public function setPrenomMedecin($prenomMedecin)
+    {
+        $this->prenomMedecin = $prenomMedecin;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomMedecin
+     *
+     * @return string 
+     */
+    public function getPrenomMedecin()
+    {
+        return $this->prenomMedecin;
+    }
+
+    /**
+     * Set adresseMedecin
+     *
+     * @param string $adresseMedecin
+     * @return Practicien
+     */
+    public function setAdresseMedecin($adresseMedecin)
+    {
+        $this->adresseMedecin = $adresseMedecin;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseMedecin
+     *
+     * @return string 
+     */
+    public function getAdresseMedecin()
+    {
+        return $this->adresseMedecin;
+    }
+
+    /**
+     * Set cpMedecin
+     *
+     * @param string $cpMedecin
+     * @return Practicien
+     */
+    public function setCpMedecin($cpMedecin)
+    {
+        $this->cpMedecin = $cpMedecin;
+
+        return $this;
+    }
+
+    /**
+     * Get cpMedecin
+     *
+     * @return string 
+     */
+    public function getCpMedecin()
+    {
+        return $this->cpMedecin;
+    }
+
+    /**
+     * Set villeMedecin
+     *
+     * @param string $villeMedecin
+     * @return Practicien
+     */
+    public function setVilleMedecin($villeMedecin)
+    {
+        $this->villeMedecin = $villeMedecin;
+
+        return $this;
+    }
+
+    /**
+     * Get villeMedecin
+     *
+     * @return string 
+     */
+    public function getVilleMedecin()
+    {
+        return $this->villeMedecin;
+    }
+
+    /**
+     * Set coefNotoriete
+     *
+     * @param float $coefNotoriete
+     * @return Practicien
+     */
+    public function setCoefNotoriete($coefNotoriete)
+    {
+        $this->coefNotoriete = $coefNotoriete;
+
+        return $this;
+    }
+
+    /**
+     * Get coefNotoriete
+     *
+     * @return float 
+     */
+    public function getCoefNotoriete()
+    {
+        return $this->coefNotoriete;
+    }
+
+    /**
+     * Set typepracticien
+     *
+     * @param \GSB\ReportBundle\Entity\Typepracticien $typepracticien
+     * @return Practicien
+     */
+    public function setTypepracticien(\GSB\ReportBundle\Entity\Typepracticien $typepracticien = null)
+    {
+        $this->typepracticien = $typepracticien;
+
+        return $this;
+    }
+
+    /**
+     * Get typepracticien
+     *
+     * @return \GSB\ReportBundle\Entity\Typepracticien 
+     */
+    public function getTypepracticien()
+    {
+        return $this->typepracticien;
+    }
+
+    /**
+     * Set rapportvisites
+     *
+     * @param \GSB\ReportBundle\Entity\Rapportvisite $rapportvisites
+     * @return Practicien
+     */
+    public function setRapportvisites(\GSB\ReportBundle\Entity\Rapportvisite $rapportvisites = null)
+    {
+        $this->rapportvisites = $rapportvisites;
+
+        return $this;
+    }
+
+    /**
+     * Get rapportvisites
+     *
+     * @return \GSB\ReportBundle\Entity\Rapportvisite 
+     */
+    public function getRapportvisites()
+    {
+        return $this->rapportvisites;
+    }
+}
