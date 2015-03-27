@@ -1,22 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %} - GSB Report</title>
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-	
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %} - GSB Report</title>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Ouvrir navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('gsb_report_accueil') }}">GSB - Report</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="medicaments">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Medicaments <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ path('gsb_report_medicaments') }}">Consulter</a></li>
+                                <li><a href="#">Rechercher</a></li>
+                            </ul>
+                        </li>
+                        <li class="praticiens">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Praticiens <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ path('gsb_report_praticiens') }}">Consulter</a></li>
+                                <li><a href="#">Rechercher</a></li>
+                            </ul>
+                        </li>
+                        <li class="rapportsVisites">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rapports de visite <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ path('gsb_report_rapports') }}">Consulter</a></li>
+                                <li><a href="{{ path('gsb_report_rapports_add') }}">Ajouter</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="connexion">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> Bienvenue, Prenom Nom <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Profil</a></li>
+                                <li><a href="#">Se déconnecter</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                                <img src="{{asset('img/logo.jpg')}}"  class="img-responsive" alt="Logo GSB" title="Logo GSB" />
+                            </div>
+                            <div class="col-xs-12 col-md-8">
+                                <h1>GSB - Report</h1>
+                                <p>Gestion des rapports de visites</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% block body %}{% endblock %}
-	{% block javascripts %}
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script src="{{ asset('js/bootstrap.min.js"') }}></script>
-	{% endblock %}
-  </body>
+    <div class="container">
+        <hr>
+        <footer>
+            <p>&copy; GSB - Report 2015</p>
+        </footer>
+    </div>
+    {% block javascripts %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</body>
 </html>

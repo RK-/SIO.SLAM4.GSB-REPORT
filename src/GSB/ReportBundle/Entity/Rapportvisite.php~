@@ -38,6 +38,12 @@ class Rapportvisite {
      * @ORM\JoinColumn(nullable=true)
      */
     protected $medecin;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Visiteur")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $visiteur;
 
     /**
      * Get id

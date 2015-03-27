@@ -1,3 +1,19 @@
-gsb_report_homepage:
-    path:     /rapport
-    defaults: { _controller: GSBReportBundle:Report:index }
+gsb_report_accueil:
+    path:     /
+    defaults: { _controller: GSBReportBundle:Rapport:index }
+
+gsb_report_medicaments:
+    path:     /medicaments/
+    defaults: { _controller: GSBReportBundle:Medicament:afficher }
+    
+gsb_report_praticiens:
+    path:     /praticiens/
+    defaults: { _controller: GSBReportBundle:Praticien:afficher }
+    
+gsb_report_rapports:
+    path:     /rapports/
+    defaults: { _controller: GSBReportBundle:Rapport:afficher }
+
+gsb_report_rapports_add:
+    path:     /rapports/ajouter/
+    defaults: { _controller: GSBReportBundle:Rapport:ajouter }

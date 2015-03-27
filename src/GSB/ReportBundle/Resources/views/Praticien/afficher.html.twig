@@ -1,0 +1,12 @@
+{% extends 'GSBReportBundle::layout.html.twig' %}
+{% block title %}Praticiens{% endblock %}
+{% block body %}
+    <div class="container">
+        {% for praticien in praticiens %}
+            {# test #}
+            {{ praticien.nomMedecin }} <br/>
+        {% else %}
+            <span>Il n'y a pas de praticien à afficher !</span>
+        {% endfor %}
+    </div>
+{% endblock %}

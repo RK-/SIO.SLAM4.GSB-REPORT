@@ -1,0 +1,12 @@
+{% extends 'GSBReportBundle::layout.html.twig' %}
+{% block title %}Rapports{% endblock %}
+{% block body %}
+    <div class="container">
+        {% for rapport in rapports %}
+            {# test #}
+            {{ rapport.motif }} <br/>
+        {% else %}
+            <span>Il n'y a pas de rapport à afficher !</span>
+        {% endfor %}
+    </div>
+{% endblock %}

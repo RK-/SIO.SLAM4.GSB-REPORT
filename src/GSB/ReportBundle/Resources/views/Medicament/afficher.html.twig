@@ -1,0 +1,12 @@
+{% extends 'GSBReportBundle::layout.html.twig' %}
+{% block title %}Médicaments{% endblock %}
+{% block body %}
+    <div class="container">
+        {% for medicament in medicaments %}
+            {# test #}
+            {{ medicament.id }}
+        {% else %}
+            <span>Il n'y a pas de medicaments à afficher !</span>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -38,6 +38,12 @@ class Rapportvisite {
      * @ORM\JoinColumn(nullable=true)
      */
     protected $medecin;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Visiteur")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $visiteur;
 
     /**
      * Get id
@@ -139,5 +145,28 @@ class Rapportvisite {
     public function getMedecin()
     {
         return $this->medecin;
+    }
+
+    /**
+     * Set visiteur
+     *
+     * @param \GSB\ReportBundle\Entity\Visiteur $visiteur
+     * @return Rapportvisite
+     */
+    public function setVisiteur(\GSB\ReportBundle\Entity\Visiteur $visiteur = null)
+    {
+        $this->visiteur = $visiteur;
+
+        return $this;
+    }
+
+    /**
+     * Get visiteur
+     *
+     * @return \GSB\ReportBundle\Entity\Visiteur 
+     */
+    public function getVisiteur()
+    {
+        return $this->visiteur;
     }
 }
