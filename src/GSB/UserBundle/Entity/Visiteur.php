@@ -1,22 +1,23 @@
 <?php
 
-namespace GSB\ReportBundle\Entity;
+namespace GSB\UserBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="GSB\ReportBundle\Repository\VisiteurRepository")
+ * @ORM\Entity
  * @ORM\Table(name="visiteur")
  */
-class Visiteur {
-    
+class Visiteur extends BaseUser
+{
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
+    
     /**
      * @ORM\Column(type="string", length=4)
      */
@@ -31,16 +32,6 @@ class Visiteur {
      * @ORM\Column(type="string", length=30, nullable=true)
      */
     protected $prenom;
-    
-    /**
-     * @ORM\Column(type="string", length=20, nullable=true)
-     */
-    protected $login;
-    
-    /**
-     * @ORM\Column(type="string", length=20, nullable=true)
-     */
-    protected $mdp;
     
     /**
      * @ORM\Column(type="string", length=30, nullable=true)
@@ -61,6 +52,11 @@ class Visiteur {
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $dateEmbauche;
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Get id
@@ -139,52 +135,6 @@ class Visiteur {
     public function getPrenom()
     {
         return $this->prenom;
-    }
-
-    /**
-     * Set login
-     *
-     * @param string $login
-     * @return Visiteur
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string 
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * Set mdp
-     *
-     * @param string $mdp
-     * @return Visiteur
-     */
-    public function setMdp($mdp)
-    {
-        $this->mdp = $mdp;
-
-        return $this;
-    }
-
-    /**
-     * Get mdp
-     *
-     * @return string 
-     */
-    public function getMdp()
-    {
-        return $this->mdp;
     }
 
     /**

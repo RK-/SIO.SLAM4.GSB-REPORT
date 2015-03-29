@@ -49,10 +49,10 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="connexion">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> Bienvenue, Prenom Nom <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> Bienvenue, {{ app.user.prenom }} {{ app.user.Nom }} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Profil</a></li>
-                                <li><a href="#">Se déconnecter</a></li>
+                                <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
                             </ul>
                         </li>
                     </ul>

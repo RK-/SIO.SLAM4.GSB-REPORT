@@ -1,3 +1,2 @@
-gsb_user_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: GSBUserBundle:Default:index }
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

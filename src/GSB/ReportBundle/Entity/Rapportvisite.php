@@ -40,7 +40,7 @@ class Rapportvisite {
     protected $medecin;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Visiteur")
+     * @ORM\ManyToOne(targetEntity="GSB\UserBundle\Entity\Visiteur")
      * @ORM\JoinColumn(nullable=true)
      */
     protected $visiteur;

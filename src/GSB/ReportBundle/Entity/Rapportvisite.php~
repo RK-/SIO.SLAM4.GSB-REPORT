@@ -146,4 +146,27 @@ class Rapportvisite {
     {
         return $this->medecin;
     }
+
+    /**
+     * Set visiteur
+     *
+     * @param \GSB\ReportBundle\Entity\Visiteur $visiteur
+     * @return Rapportvisite
+     */
+    public function setVisiteur(\GSB\ReportBundle\Entity\Visiteur $visiteur = null)
+    {
+        $this->visiteur = $visiteur;
+
+        return $this;
+    }
+
+    /**
+     * Get visiteur
+     *
+     * @return \GSB\ReportBundle\Entity\Visiteur 
+     */
+    public function getVisiteur()
+    {
+        return $this->visiteur;
+    }
 }
