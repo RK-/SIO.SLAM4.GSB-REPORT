@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class MedicamentRepository extends EntityRepository {
     
+    public function getMedicamentsByFamille($id) {
+        $qb = $this->createQueryBuilder('m')
+                ->select('m')
+                ->join('m.famille', 'f', 'WITH', 'f.id = :id')
+                ->setParameter('id', $id)
+                ->addSelect('f');
+        return $qb->getQuery()->getResult();
+    }
 }
