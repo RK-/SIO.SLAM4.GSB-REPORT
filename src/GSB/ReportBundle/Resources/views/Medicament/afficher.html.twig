@@ -1,12 +1,27 @@
 {% extends 'GSBReportBundle::layout.html.twig' %}
+
 {% block title %}Médicaments{% endblock %}
+
 {% block body %}
     <div class="container">
-        {% for medicament in medicaments %}
-            {# test #}
-            {{ medicament.id }}
-        {% else %}
-            <span>Il n'y a pas de medicaments à afficher !</span>
-        {% endfor %}
+        <h1 class="text-center">Médicaments</h1>
+        <div class="dataTable_wrapper">
+            <table class="table table-striped table-bordered table-hover" id="dataTables">
+                <thead>
+                    <tr>
+                        <td>Nom commercial</td>
+                        <td>Famille</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for medicament in medicaments %}
+                        <tr>
+                            <td>{{ medicament.nomCommercial }}</td>
+                            <td>{{ medicament.famille.libelleFamille }}</td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

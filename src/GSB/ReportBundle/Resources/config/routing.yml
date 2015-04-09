@@ -6,6 +6,17 @@ gsb_report_medicaments:
     path:     /medicaments/
     defaults: { _controller: GSBReportBundle:Medicament:afficher }
     
+gsb_report_medicaments_rechercher:
+    path:     /medicaments/rechercher/
+    defaults: { _controller: GSBReportBundle:Medicament:rechercher }
+    
+gsb_report_medicaments_famille:
+    path:     /medicaments/famille/{id}
+    defaults: { _controller: GSBReportBundle:Medicament:afficherFamille }
+    requirements:
+        _method:  GET
+        blog_id: \d+
+    
 gsb_report_praticiens:
     path:     /praticiens/
     defaults: { _controller: GSBReportBundle:Praticien:afficher }

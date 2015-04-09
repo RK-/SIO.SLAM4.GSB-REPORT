@@ -1,12 +1,31 @@
 {% extends 'GSBReportBundle::layout.html.twig' %}
+
 {% block title %}Rapports{% endblock %}
+
 {% block body %}
     <div class="container">
-        {% for rapport in rapports %}
-            {# test #}
-            {{ rapport.motif }} <br/>
-        {% else %}
-            <span>Il n'y a pas de rapport à afficher !</span>
-        {% endfor %}
+        <h1 class="text-center">Rapports</h1>
+        <div class="dataTable_wrapper">
+            <table class="table table-striped table-bordered table-hover" id="dataTables">
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Praticien</td>
+                        <td>Ville</td>
+                        <td>Motif</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rapport in rapports %}
+                        <tr>
+                            <td>{{ rapport.dateRapport | date('d/m/Y') }}</td>
+                            <td>{{ rapport.medecin.prenomMedecin }} {{ rapport.medecin.nomMedecin }}</td>
+                            <td>{{ rapport.medecin.villeMedecin }}</td>
+                            <td>{{ rapport.motif }}</td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
