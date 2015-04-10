@@ -27,4 +27,8 @@ $(document).ready(function () {
         },
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
     });
+    $('#myTab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
 });

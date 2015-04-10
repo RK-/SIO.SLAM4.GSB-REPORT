@@ -1,18 +1,31 @@
 {% extends 'GSBReportBundle::layout.html.twig' %}
 
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
 {% block title %}Rechercher des praticiens{% endblock %}
 
 {% block breadcrumb %}
     <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
     <li><a href="{{ path('gsb_report_praticiens') }}">Praticiens</a></li>
     <li class="active">Rechercher</li>
-{% endblock %}
+    {% endblock %}
 
 {% block body %}
     <div class="container">
         <h1 class="text-center">Rechercher des praticiens</h1>
-        {{ form(form) }}
-        
-        {{ form(formAvance) }}
+        <ul id="myTab" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#simple" id="home-tab" role="tab" data-toggle="tab" aria-controls="simple" aria-expanded="true">Simple</a></li>
+            <li role="presentation" class=""><a href="#avancee" role="tab" id="profile-tab" data-toggle="tab" aria-controls="avancee" aria-expanded="false">Avancée</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="simple" aria-labelledby="simple-tab">
+                <br/>
+                {{ form(form) }}
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="avancee" aria-labelledby="avancee-tab">
+                <br/>
+                {{ form(formAvance) }}
+            </div>
+        </div>
     </div>
 {% endblock %}
