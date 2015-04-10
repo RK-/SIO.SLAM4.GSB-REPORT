@@ -25,6 +25,15 @@ class PraticienController extends Controller
         ));
     }
     
+    public function afficherAvanceAction($nom, $ville)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $praticiens = $em->getRepository('GSBReportBundle:Praticien')->getPraticiensByAvance($nom, $ville);
+        return $this->render('GSBReportBundle:Praticien:afficher.html.twig', array(
+            'praticiens' => $praticiens
+        ));
+    }
+    
     public function rechercherAction(Request $request) {
         $form = $this->createFormBuilder()
             ->add('type', 'entity', array(
@@ -41,8 +50,36 @@ class PraticienController extends Controller
             $type = $form->get('type')->getData();
             return $this->redirect($this->generateUrl('gsb_report_praticiens_type', array('id' => $type->getId())));
         }
+        
+        $formAvance = $this->createFormBuilder()
+            ->add('nom', 'text', array(
+                'required' => false))
+            ->add('ville', 'text', array(
+                'required' => false))
+            ->add('rechercher', 'submit')
+            ->getForm();
+        $formAvance->handleRequest($request);
+        if ($formAvance->isValid()) {
+            if (empty($formAvance->get('nom')->getData())) {
+                $nom = "all";
+            } else {
+                $nom = $formAvance->get('nom')->getData();
+            }
+            if (empty($formAvance->get('ville')->getData())) {
+                $ville = "all";
+            } else {
+                $ville = $formAvance->get('ville')->getData();
+            }
+            return $this->redirect($this->generateUrl(
+                    'gsb_report_praticiens_avance',
+                    array(
+                        'nom' => $nom,
+                        'ville' => $ville
+                    )));
+        }
         return $this->render('GSBReportBundle:Praticien:rechercher.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'formAvance' => $formAvance->createView()
         ));
     }
 }

@@ -11,7 +11,7 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class MedicamentRepository extends EntityRepository {
-    
+
     public function getMedicamentsByFamille($id) {
         $qb = $this->createQueryBuilder('m')
                 ->select('m')
@@ -20,4 +20,5 @@ class MedicamentRepository extends EntityRepository {
                 ->addSelect('f');
         return $qb->getQuery()->getResult();
     }
+
 }

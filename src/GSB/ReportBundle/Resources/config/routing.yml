@@ -15,7 +15,7 @@ gsb_report_medicaments_famille:
     defaults: { _controller: GSBReportBundle:Medicament:afficherFamille }
     requirements:
         _method:  GET
-        blog_id: \d+
+        id: \d+
     
 gsb_report_praticiens:
     path:     /praticiens/
@@ -30,7 +30,13 @@ gsb_report_praticiens_type:
     defaults: { _controller: GSBReportBundle:Praticien:afficherType }
     requirements:
         _method:  GET
-        blog_id: \d+
+        id: \d+
+
+gsb_report_praticiens_avance:
+    path:     /praticiens/nom/{nom}/ville/{ville}
+    defaults: { _controller: GSBReportBundle:Praticien:afficherAvance, nom: "all", ville: "all" }
+    requirements:
+        _method:  GET
     
 gsb_report_rapports:
     path:     /rapports/

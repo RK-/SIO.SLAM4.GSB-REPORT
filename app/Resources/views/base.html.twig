@@ -5,8 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}{% endblock %} - GSB Report</title>
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/dataTables.bootstrap.css') }}" rel="stylesheet">
+        {% block stylesheets %}
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/dataTables.bootstrap.css') }}" rel="stylesheet">
+        {% endblock %}
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -76,12 +78,21 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <ol class="breadcrumb">
+                        {% block breadcrumb %}
+                        {% endblock %}
+                    </ol>
+                </div>
+            </div>
+            <hr/>
         </div>
     {% block body %}{% endblock %}
     <div class="container">
         <hr>
         <footer>
-            <p>&copy; GSB - Report 2015</p>
+            <p>&copy; 2015 GSB Report - Tous droits réservés</p>
         </footer>
     </div>
     {% block javascripts %}

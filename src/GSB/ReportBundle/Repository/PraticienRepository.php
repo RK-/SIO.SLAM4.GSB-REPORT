@@ -20,5 +20,31 @@ class PraticienRepository extends EntityRepository {
                 ->addSelect('t');
         return $qb->getQuery()->getResult();
     }
+    
+    public function getPraticiensByAvance($nom, $ville) {
+        if ($nom === "all" && $ville === "all") {
+            $qb = $this->createQueryBuilder('p')
+                ->select('p');
+        } else if ($nom !== "all") {
+            $qb = $this->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.nomMedecin LIKE :nom')
+                ->setParameter('nom', '%'.$nom.'%');
+        } else if (!$ville !== "all") {
+            $qb = $this->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.villeMedecin LIKE :ville')
+                ->setParameter('ville', '%'.$ville.'%');
+        } else {
+            $qb = $this->createQueryBuilder('p')
+                ->select('p')
+                ->andWhere('p.nomMedecin LIKE :nom')
+                ->setParameter('nom', '%'.$nom.'%')
+                ->where('p.villeMedecin LIKE :ville')
+                ->setParameter('ville', '%'.$nom.'%');
+        }
+        
+        return $qb->getQuery()->getResult();
+    }
 
 }

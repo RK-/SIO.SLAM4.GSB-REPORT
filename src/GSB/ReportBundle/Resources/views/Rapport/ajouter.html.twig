@@ -2,6 +2,12 @@
 
 {% block title %}Nouveau rapport de visite{% endblock %}
 
+{% block breadcrumb %}
+    <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
+    <li><a href="{{ path('gsb_report_rapports') }}">Rapports</a></li>
+    <li class="active">Ajouter</li>
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <h1 class="text-center">Nouveau rapport de visite</h1>
