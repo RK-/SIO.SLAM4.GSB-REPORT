@@ -20,6 +20,17 @@ gsb_report_medicaments_famille:
 gsb_report_praticiens:
     path:     /praticiens/
     defaults: { _controller: GSBReportBundle:Praticien:afficher }
+
+gsb_report_praticiens_rechercher:
+    path:     /praticiens/rechercher/
+    defaults: { _controller: GSBReportBundle:Praticien:rechercher }
+
+gsb_report_praticiens_type:
+    path:     /praticiens/type/{id}
+    defaults: { _controller: GSBReportBundle:Praticien:afficherType }
+    requirements:
+        _method:  GET
+        blog_id: \d+
     
 gsb_report_rapports:
     path:     /rapports/

@@ -150,10 +150,10 @@ class Rapportvisite {
     /**
      * Set visiteur
      *
-     * @param \GSB\ReportBundle\Entity\Visiteur $visiteur
+     * @param \GSB\UserBundle\Entity\Visiteur $visiteur
      * @return Rapportvisite
      */
-    public function setVisiteur(\GSB\ReportBundle\Entity\Visiteur $visiteur = null)
+    public function setVisiteur(\GSB\UserBundle\Entity\Visiteur $visiteur = null)
     {
         $this->visiteur = $visiteur;
 
@@ -163,7 +163,7 @@ class Rapportvisite {
     /**
      * Get visiteur
      *
-     * @return \GSB\ReportBundle\Entity\Visiteur 
+     * @return \GSB\UserBundle\Entity\Visiteur 
      */
     public function getVisiteur()
     {

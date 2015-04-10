@@ -108,7 +108,12 @@ class Praticien {
     {
         return $this->prenomMedecin;
     }
-
+    
+    public function getNomPrenom()
+    {
+        return $this->prenomMedecin . ' ' . $this->nomMedecin;
+    }
+    
     /**
      * Set adresseMedecin
      *
