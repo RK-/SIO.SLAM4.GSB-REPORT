@@ -1,0 +1,16 @@
+{% extends 'GSBReportBundle::layout.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
+    <li class="active">Profil</li>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% block fos_user_content %}
+            {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+        {% endblock fos_user_content %}
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'GSBReportBundle::layout.html.twig' %}
+
+{% block title %}Modifier profil{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
+    <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+    <li class="active">Modifier profil</li>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-lg-10 col-md-10 col-sm-12">
+            {% block fos_user_content %}
+                {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+            {% endblock fos_user_content %}
+        </div>
+    </div>
+{% endblock %}
