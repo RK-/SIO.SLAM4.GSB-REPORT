@@ -15,7 +15,7 @@ Pour permettre une aide au renseignement des rapports, l'application fournira un
 ### Installation
 *Prochainement*
 
-### License
+### Licence
 
 *None*
 
