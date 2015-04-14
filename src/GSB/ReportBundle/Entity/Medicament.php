@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="GSB\ReportBundle\Repository\MedicamentRepository")
  * @ORM\Table(name="medicament")
  */
-class Medicament {
+class Medicament
+{
     
     /**
      * @ORM\Id
@@ -223,4 +224,5 @@ class Medicament {
     {
         return $this->famille;
     }
+    
 }

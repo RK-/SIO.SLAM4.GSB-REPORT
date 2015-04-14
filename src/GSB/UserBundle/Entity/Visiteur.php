@@ -1,7 +1,5 @@
 <?php
 
-// http://www.foulquier.info/tutoriaux/creation-dun-espace-mon-compte-avec-fosuserbundle-et-sonatauserbundle-sf2-back-office-part-2 tuto pour profile
-
 namespace GSB\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
@@ -21,7 +19,7 @@ class Visiteur extends BaseUser
     protected $id;
     
     /**
-     * @ORM\Column(type="string", length=4)
+     * @ORM\Column(type="string", length=4, nullable=true)
      */
     protected $idGSB;
     
@@ -230,4 +228,5 @@ class Visiteur extends BaseUser
     {
         return $this->dateEmbauche;
     }
+    
 }

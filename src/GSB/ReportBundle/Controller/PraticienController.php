@@ -5,57 +5,104 @@ namespace GSB\ReportBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class PraticienController extends Controller {
-
-    public function afficherAction() {
+/**
+ * Controlleur pour gérer les Praticiens.
+ */
+class PraticienController extends Controller 
+{
+    /**
+     * Afficher tous les praticiens.
+     * 
+     * @return la vue Praticien/afficher.html.twig
+     */
+    public function afficherAction() 
+    {
         $em = $this->getDoctrine()->getManager();
-        $praticiens = $em->getRepository('GSBReportBundle:Praticien')->getPraticiens();
+        $praticiens = $em->getRepository('GSBReportBundle:Praticien')
+                         ->getPraticiens();
+        
         return $this->render('GSBReportBundle:Praticien:afficher.html.twig', array(
                     'praticiens' => $praticiens
         ));
     }
 
-    public function afficherTypeAction($id) {
+    /**
+     * Afficher tous les praticiens de même type dont l'id est donné en paramètre.
+     * 
+     * @param int $id l'id du Typepraticien
+     * @return la vue Praticien/afficher.html.twig
+     */
+    public function afficherTypeAction($id)
+    {
         $em = $this->getDoctrine()->getManager();
-        $praticiens = $em->getRepository('GSBReportBundle:Praticien')->getPraticiensByType($id);
+        $praticiens = $em->getRepository('GSBReportBundle:Praticien')
+                         ->getPraticiensByType($id);
+        
         return $this->render('GSBReportBundle:Praticien:afficher.html.twig', array(
                     'praticiens' => $praticiens
         ));
     }
 
-    public function afficherAvanceAction($nom, $ville) {
+    /**
+     * Afficher tous les praticiens possédant le nom et/ou la ville donnés en 
+     *  paramètre.
+     * 
+     * @param String $nom le nom du praticien
+     * @param String $ville la ville du praticien
+     * @return la vue Praticien/afficher.html.twig
+     */
+    public function afficherAvanceAction($nom, $ville) 
+    {
         $em = $this->getDoctrine()->getManager();
-        $praticiens = $em->getRepository('GSBReportBundle:Praticien')->getPraticiensByAvance($nom, $ville);
+        $praticiens = $em->getRepository('GSBReportBundle:Praticien')
+                         ->getPraticiensByAvance($nom, $ville);
+        
         return $this->render('GSBReportBundle:Praticien:afficher.html.twig', array(
                     'praticiens' => $praticiens
         ));
     }
 
-    public function rechercherAction(Request $request) {
+    /**
+     * 
+     * @param Request $request les informations retourné par le formulaire.
+     * @return la vue Praticien/rechercher.html.twig
+     */
+    public function rechercherAction(Request $request)
+    {
+        // premier formulaire : Simple
         $form = $this->createFormBuilder()
-                ->add('type', 'entity', array(
-                    'class' => 'GSBReportBundle:Typepraticien',
-                    'property' => 'libelleType',
-                    'expanded' => false,
-                    'multiple' => false,
-                    'empty_value' => false
-                ))
-                ->add('rechercher', 'submit')
-                ->getForm();
+                    ->add('type', 'entity', array(
+                        'class'       => 'GSBReportBundle:Typepraticien',
+                        'property'    => 'libelleType',
+                        'expanded'    => false,
+                        'multiple'    => false,
+                        'empty_value' => false))
+                    ->add('rechercher', 'submit')
+                    ->getForm();
         $form->handleRequest($request);
+        
+        // si le formulaire est transmis
         if ($form->isValid()) {
             $type = $form->get('type')->getData();
-            return $this->redirect($this->generateUrl('gsb_report_praticiens_type', array('id' => $type->getId())));
+            
+            // on retourne pour utiliser l'action afficherTypeAction($id)
+            return $this->redirect(
+                        $this->generateUrl('gsb_report_praticiens_type',
+                                array('id' => $type->getId())
+                        ));
         }
-
+        
+        // deuxième formulaire : Avancé
         $formAvance = $this->createFormBuilder()
-                ->add('nom', 'text', array(
-                    'required' => false))
-                ->add('ville', 'text', array(
-                    'required' => false))
-                ->add('rechercher', 'submit')
-                ->getForm();
+                        ->add('nom', 'text', array(
+                            'required' => false))
+                        ->add('ville', 'text', array(
+                            'required' => false))
+                        ->add('rechercher', 'submit')
+                        ->getForm();
         $formAvance->handleRequest($request);
+        
+        // si le formulaire est transmis
         if ($formAvance->isValid()) {
             if (empty($formAvance->get('nom')->getData())) {
                 $nom = "all";
@@ -67,12 +114,16 @@ class PraticienController extends Controller {
             } else {
                 $ville = $formAvance->get('ville')->getData();
             }
-            return $this->redirect($this->generateUrl(
-                                    'gsb_report_praticiens_avance', array(
-                                'nom' => $nom,
-                                'ville' => $ville
-            )));
+            
+            // on retourne pour utiliser l'action afficherAvanceAction($nom, $ville)
+            return $this->redirect(
+                        $this->generateUrl(
+                            'gsb_report_praticiens_avance', array(
+                                'nom'   => $nom,
+                                'ville' => $ville))
+                    );
         }
+        
         return $this->render('GSBReportBundle:Praticien:rechercher.html.twig', array(
                     'form' => $form->createView(),
                     'formAvance' => $formAvance->createView()

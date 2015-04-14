@@ -1,0 +1,29 @@
+﻿Création d’un bundle :
+php app/console generate:bundle
+
+Génération des entités :
+php app/console doctrine:generate:entities GSB
+
+Création de la base de donnée :
+php app/console doctrine:database:create
+
+Création des tables :
+php app/console doctrine:schema:create
+
+Mettre à jour les tables :
+php app/console doctrine:schema:update --force
+
+Mettre à jour les CSS, JS et images :
+php app/console assets:install web
+
+Vider le cache :
+php app/console cache:clear
+
+Création d’un utilisateur pour FOSUserBundle :
+php app/console fos:user:create username email password
+
+Nommer un rôle à un utilisateur :
+php app/console fos:user:promote username ROLE_ADMIN
+
+En cas de problème, pour vérifier les entités :
+php app/console cache:warmup --env=prod --no-debug

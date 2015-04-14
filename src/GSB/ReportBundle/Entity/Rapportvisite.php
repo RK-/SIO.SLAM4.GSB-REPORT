@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="GSB\ReportBundle\Repository\RapportvisiteRepository")
  * @ORM\Table(name="rapport_visite")
- * @ORM\HasLifecycleCallbacks()
  */
-class Rapportvisite {
+class Rapportvisite 
+{
     
     /**
      * @ORM\Id
@@ -169,4 +169,5 @@ class Rapportvisite {
     {
         return $this->visiteur;
     }
+    
 }

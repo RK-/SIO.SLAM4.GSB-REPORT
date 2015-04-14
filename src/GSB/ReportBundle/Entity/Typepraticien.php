@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="GSB\ReportBundle\Repository\TypepraticienRepository")
  * @ORM\Table(name="type_praticien")
  */
-class Typepraticien {
+class Typepraticien 
+{
     
     /**
      * @ORM\Id
@@ -54,4 +55,5 @@ class Typepraticien {
     {
         return $this->libelleType;
     }
+    
 }

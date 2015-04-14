@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="GSB\ReportBundle\Repository\FamilleRepository")
  * @ORM\Table(name="famille")
  */
-class Famille {
+class Famille
+{
     
     /**
      * @ORM\Id
@@ -54,4 +55,5 @@ class Famille {
     {
         return $this->libelleFamille;
     }
+    
 }
