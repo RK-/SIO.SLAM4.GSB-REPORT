@@ -81,3 +81,7 @@ fos_user:
     profile:
         form:
             type: gsb_user_profile
+            
+genemu_form:
+    select2: ~
+    date: ~

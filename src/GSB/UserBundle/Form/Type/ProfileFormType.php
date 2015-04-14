@@ -15,7 +15,9 @@ class ProfileFormType extends BaseType
                 ->add('adresse')
                 ->add('cp')
                 ->add('ville')
-                ->add('dateEmbauche')
+                ->add('dateEmbauche', 'genemu_jquerydate', array(
+                    'widget' => 'single_text'
+                ))
                 ->remove('current_password');
     }
     

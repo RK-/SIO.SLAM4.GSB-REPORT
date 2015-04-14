@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class RapportvisiteRepository extends EntityRepository {
     
+    public function getRapports() {
+        $qb = $this->createQueryBuilder('r')
+                ->select('r')
+                ->join('r.medecin', 'm')
+                ->addSelect('m');
+        return $qb->getQuery()->getResult();
+    }
 }

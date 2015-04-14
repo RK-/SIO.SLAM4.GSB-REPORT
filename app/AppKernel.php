@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new GSB\ReportBundle\GSBReportBundle(),
             new GSB\UserBundle\GSBUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

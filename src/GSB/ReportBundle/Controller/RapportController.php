@@ -14,7 +14,7 @@ class RapportController extends Controller {
 
     public function afficherAction() {
         $em = $this->getDoctrine()->getManager();
-        $rapports = $em->getRepository('GSBReportBundle:Rapportvisite')->findAll();
+        $rapports = $em->getRepository('GSBReportBundle:Rapportvisite')->getRapports();
         return $this->render('GSBReportBundle:Rapport:afficher.html.twig', array(
                     'rapports' => $rapports
         ));
@@ -24,10 +24,8 @@ class RapportController extends Controller {
         $rapport = new Rapportvisite();
         $rapport->setDateRapport(new \Datetime());
         $form = $this->get('form.factory')->createBuilder('form', $rapport)
-                ->add('dateRapport', 'date', array(
-                    'input' => 'datetime',
-                    'widget' => 'single_text',
-                    'format' => 'dd/MM/yyyy'
+                ->add('dateRapport', 'genemu_jquerydate', array(
+                    'widget' => 'single_text'
                 ))
                 ->add('bilan', 'text')
                 ->add('motif', 'textarea')
@@ -51,7 +49,8 @@ class RapportController extends Controller {
             return $this->redirect($this->generateUrl('gsb_report_rapports'));
         }
         return $this->render('GSBReportBundle:Rapport:ajouter.html.twig', array(
-            'form' => $form->createView()
+                    'form' => $form->createView()
         ));
     }
+
 }

@@ -32,3 +32,4 @@ $(document).ready(function () {
         $(this).tab('show')
     })
 });
+$('select').select2();

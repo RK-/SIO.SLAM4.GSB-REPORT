@@ -12,6 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class PraticienRepository extends EntityRepository {
 
+    public function getPraticiens() {
+        $qb = $this->createQueryBuilder('p')
+                ->select('p')
+                ->join('p.typepraticien', 't')
+                ->addSelect('t');
+        return $qb->getQuery()->getResult();
+    }
+    
     public function getPraticiensByType($id) {
         $qb = $this->createQueryBuilder('p')
                 ->select('p')
