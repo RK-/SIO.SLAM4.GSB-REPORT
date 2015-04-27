@@ -53,24 +53,28 @@ class PraticienRepository extends EntityRepository
      */
     public function getPraticiensByAvance($nom, $ville)
     {
-        dump($ville);
-        dump($nom);
         // tous les praticiens
         if ($nom === "all" && $ville === "all") {
             $qb = $this->createQueryBuilder('p')
-                       ->select('p');
+                       ->select('p')
+                       ->join('p.typepraticien', 't')
+                       ->addSelect('t');
         // les praticiens avec le $nom
         } else if ($nom !== "all" && $ville === "all") {
             $qb = $this->createQueryBuilder('p')
                        ->select('p')
                        ->where('p.nomMedecin LIKE :nom')
-                       ->setParameter('nom', '%'.$nom.'%');
+                       ->setParameter('nom', '%'.$nom.'%')
+                       ->join('p.typepraticien', 't')
+                       ->addSelect('t');
         // les praticiens avec la $ville
         } else if ($ville !== "all" && $nom === "all") {
             $qb = $this->createQueryBuilder('p')
                        ->select('p')
                        ->where('p.villeMedecin LIKE :ville')
-                       ->setParameter('ville', '%'.$ville.'%');
+                       ->setParameter('ville', '%'.$ville.'%')
+                       ->join('p.typepraticien', 't')
+                       ->addSelect('t');
         // les praticiens avec le $nom ET la $ville
         } else {
             $qb = $this->createQueryBuilder('p')
@@ -78,7 +82,9 @@ class PraticienRepository extends EntityRepository
                        ->where('p.nomMedecin LIKE :nom')
                        ->setParameter('nom', '%'.$nom.'%')
                        ->andWhere('p.villeMedecin LIKE :ville')
-                       ->setParameter('ville', '%'.$ville.'%');
+                       ->setParameter('ville', '%'.$ville.'%')
+                       ->join('p.typepraticien', 't')
+                       ->addSelect('t');
         }
         
         return $qb->getQuery()->getResult();
