@@ -3,6 +3,7 @@
 namespace GSB\ReportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="GSB\ReportBundle\Repository\RapportvisiteRepository")
@@ -20,28 +21,33 @@ class Rapportvisite
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime()
      */
     protected $dateRapport;
     
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5)
      */
     protected $bilan;
     
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=10)
      */
     protected $motif;
     
     /**
      * @ORM\ManyToOne(targetEntity="Praticien")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     protected $medecin;
     
     /**
      * @ORM\ManyToOne(targetEntity="GSB\UserBundle\Entity\Visiteur")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     protected $visiteur;
 

@@ -6,7 +6,6 @@ Pour permettre une aide au renseignement des rapports, l'application fournira un
 
 
 ### Todo's :
-- Ajouter les validations pour les formulaires
 - Modifier le logo et ajouter de la couleur,
 - Faire tuto installation.
 
@@ -21,7 +20,7 @@ Tous les utilisateurs ont le même mot de passe : user1
 ### Vendors
 - FosUserBundle pour la gestion des utilisateurs
 - GenemuFormBundle pour le datepicker et les selects avec recherche
-- Bootstrap pour le design CSS, JS et fonts
+- Bootstrap pour la mise en page CSS, JS et fonts
 - DataTables pour les tableaux dynamiques en JS
 
 ### Licence
