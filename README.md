@@ -6,7 +6,6 @@ Pour permettre une aide au renseignement des rapports, l'application fournira un
 
 
 ### Todo's :
-- Modifier le logo et ajouter de la couleur,
 - Faire tuto installation.
 
 ### Installation
