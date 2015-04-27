@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur {{ status_code }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
+    <li class="active">Erreur</li>
+{% endblock %}
+
+{% block body %}
+  <div class="container text-center">
+    <h1 class="text-danger">Erreur</h1>
+
+    <p class="lead">
+        Une erreur inconnue s'est produite (HTTP {{ status_code }}).
+    </p>
+    <p>
+        Essayez de recharger cette page ou
+        <a href="{{ path('gsb_report_accueil') }}">retourner à l'accueil</a>.
+    </p>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 500{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
+    <li class="active">Erreur 500</li>
+{% endblock %}
+
+{% block body %}
+  <div class="container text-center">
+    <h1 class="text-danger">Erreur 500</h1>
+
+    <p class="lead">
+        Une erreur de serveur interne s'est produite.
+    </p>
+    <p>
+        Essayez de recharger cette page ou
+        <a href="{{ path('gsb_report_accueil') }}">retournez à l'accueil</a>.
+    </p>
+  </div>
+{% endblock %}

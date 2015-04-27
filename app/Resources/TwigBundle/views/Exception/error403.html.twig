@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 403{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
+    <li class="active">Erreur 403</li>
+{% endblock %}
+
+{% block body %}
+  <div class="container text-center">
+    <h1 class="text-danger"><i class="fa fa-unlock-alt"></i> Erreur 403</h1>
+
+    <p class="lead">
+        Vous n'avez pas la permission.
+    </p>
+    <p>
+        Demandez à votre gestionnaire ou administrateur système afin de vous accorder
+        l'accès à cette ressource.
+    </p>
+  </div>
+{% endblock %}

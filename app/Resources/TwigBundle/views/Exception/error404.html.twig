@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 404{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('gsb_report_accueil') }}">Accueil</a></li>
+    <li class="active">Erreur 404</li>
+{% endblock %}
+
+{% block body %}
+  <div class="container text-center">
+    <h1 class="text-danger">Erreur 404</h1>
+
+    <p class="lead">
+        Nous ne pouvons trouver la page que vous avez demandé.
+    </p>
+    <p>
+        Corrigez l'url ou
+        <a href="{{ path('gsb_report_accueil') }}">retournez à l'accueil</a>.
+    </p>
+  </div>
+{% endblock %}

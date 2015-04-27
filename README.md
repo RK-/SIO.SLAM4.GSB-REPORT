@@ -5,15 +5,13 @@
 Pour permettre une aide au renseignement des rapports, l'application fournira une description des produits du laboratoire, les coordonnées précises des praticiens et des informations détaillées les concernant. 
 
 
-### Todo's :
-- Faire tuto installation.
-
-### Installation
-*Prochainement*
-
 ### Utilisation
-*Prochainement*
-Tous les utilisateurs ont le même mot de passe : user1
+Pour se connecter utilisez un identifiant d'un utilisateur dans la base de donnée.
+Les utilisateurs ont tous le même mot de passe : user1
+
+Vous pouvez créer un utilisateur en exécutant la commande de création d'un utilisateur de FosUserBundle  :
+
+ `php app/console fos:user:create username email password`
 
 
 ### Vendors
