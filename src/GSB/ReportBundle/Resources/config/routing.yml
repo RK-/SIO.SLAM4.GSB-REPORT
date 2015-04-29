@@ -45,4 +45,3 @@ gsb_report_rapports:
 gsb_report_rapports_add:
     path:     /rapports/ajouter/
     defaults: { _controller: GSBReportBundle:Rapport:ajouter }
-    
