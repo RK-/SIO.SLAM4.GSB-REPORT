@@ -104,16 +104,8 @@ class PraticienController extends Controller
         
         // si le formulaire est transmis
         if ($formAvance->isValid()) {
-            if (empty($formAvance->get('nom')->getData())) {
-                $nom = "all";
-            } else {
-                $nom = $formAvance->get('nom')->getData();
-            }
-            if (empty($formAvance->get('ville')->getData())) {
-                $ville = "all";
-            } else {
-                $ville = $formAvance->get('ville')->getData();
-            }
+			$nom =  $formAvance->getParameter("nom", "all");
+            $ville = $formAvance->getParameter("ville", "all");
             
             // on retourne pour utiliser l'action afficherAvanceAction($nom, $ville)
             return $this->redirect(
