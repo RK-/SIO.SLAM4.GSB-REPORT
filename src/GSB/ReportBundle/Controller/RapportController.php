@@ -49,7 +49,7 @@ class RapportController extends Controller
         $rapport = new Rapportvisite();
         // on lui définis la date du jour, peut être modifié dans le formulaire
         $rapport->setDateRapport(new \Datetime());
-        // créatiion du formulaire
+        // création du formulaire
         $form = $this->get('form.factory')
                     ->createBuilder('form', $rapport)
                     ->add('dateRapport', 'genemu_jquerydate', array(
