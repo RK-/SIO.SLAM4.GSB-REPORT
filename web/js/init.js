@@ -9,7 +9,7 @@ $(document).ready(function () {
             "infoFiltered": "(filtré de _MAX_ entrées totales)",
             "infoPostFix": "",
             "thousands": ",",
-            "lengthMenu": "Affiché _MENU_ entrées",
+            "lengthMenu": "Afficher _MENU_ entrées",
             "loadingRecords": "Chargement...",
             "processing": "traitement...",
             "search": "Recherche :",
